@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_delivery/models/food.dart';
 
 class MyFoodTile extends StatelessWidget {
@@ -13,6 +11,7 @@ class MyFoodTile extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Row(

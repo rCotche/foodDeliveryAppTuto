@@ -14,6 +14,7 @@ class _FoodPageState extends State<FoodPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //widget.food.imagePath
         //Pour le moment
         Image.asset(
           "lib/images/placeholder.png",

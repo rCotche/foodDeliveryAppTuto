@@ -7,6 +7,7 @@ import 'package:food_delivery/components/my_silver_app_bar.dart';
 import 'package:food_delivery/components/my_tab_bar.dart';
 import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/models/restaurant.dart';
+import 'package:food_delivery/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,11 +63,17 @@ class _HomePageState extends State<HomePage>
           physics: const NeverScrollableScrollPhysics(),
           itemCount: categoryMenu.length,
           itemBuilder: (context, index) {
+            //categoryMenuItem est un food
             final categoryMenuItem = categoryMenu[index];
             //le return de la funct anonyme de ListView.builder
             return MyFoodTile(
               food: categoryMenuItem,
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodPage(food: categoryMenuItem),
+                ),
+              ),
             );
           });
     }).toList(); //donc on a une liste de ListView
