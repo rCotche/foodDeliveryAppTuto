@@ -9,7 +9,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "1 Classic cheeseburger",
       description:
-          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles, and a toasted bun, all perfectly balanced for a mouthwatering bite.",
+          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 0.99,
@@ -24,7 +24,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "2 Classic cheeseburger",
       description:
-          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles, and a toasted bun, all perfectly balanced for a mouthwatering bite.",
+          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 0.99,
@@ -38,7 +38,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "3 Classic cheeseburger",
       description:
-          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles, and a toasted bun, all perfectly balanced for a mouthwatering bite.",
+          "a succulent beef patty, melted cheddar, crisp lettuce, ripe tomatoes, tangy pickles",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 0.99,
@@ -53,7 +53,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "1 Caesar salad",
       description:
-          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan, all tossed in a creamy, tangy Caesar dressing, finished with a hint of fresh lemon. Perfectly refreshing and delicious!",
+          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 7.99,
@@ -68,7 +68,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "2 Caesar salad",
       description:
-          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan, all tossed in a creamy, tangy Caesar dressing, finished with a hint of fresh lemon. Perfectly refreshing and delicious!",
+          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 7.99,
@@ -83,7 +83,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "3 Caesar salad",
       description:
-          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan, all tossed in a creamy, tangy Caesar dressing, finished with a hint of fresh lemon. Perfectly refreshing and delicious!",
+          "Our Caesar Salad features crisp romaine lettuce, crunchy croutons, and shaved Parmesan",
       imagePath:
           "https://placehold.co/600x400/png", //"lib/images/burgers/cheese_burger.png"
       price: 7.99,
