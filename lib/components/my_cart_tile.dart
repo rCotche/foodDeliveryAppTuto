@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_quantity_selector.dart';
 import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/models/restaurant.dart';
@@ -40,14 +41,23 @@ class MyCartTile extends StatelessWidget {
                     width: 10,
                   ),
                   //name and price
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(cartItem.food.name),
-                      Text(
-                        '\$${cartItem.food.price}',
-                      ),
-                    ],
+                  //moi : a cause d'une erreur d'affichage
+                  SizedBox(
+                    width: 100,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          cartItem.food.name,
+                          //moi
+                          //Pour avoir des points de suspensions lorsque le texte est coupé
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          '\$${cartItem.food.price}',
+                        ),
+                      ],
+                    ),
                   ),
                   const Spacer(),
                   //increment decrement quantity
