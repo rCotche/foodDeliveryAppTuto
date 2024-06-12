@@ -19,10 +19,11 @@ class FoodPage extends StatefulWidget {
 }
 
 class _FoodPageState extends State<FoodPage> {
-  //close current food page ro go back to the menu
-  Navigator.pop(context);
-  //format the selected addon
   void addToCart(Food food, Map<Addon, bool> selectedAddons) {
+    //close current food page to go back to the menu
+    Navigator.pop(context);
+
+    //format the selected addon
     List<Addon> currentlySelectedAddons = [];
     for (Addon addon in widget.food.availableAddon) {
       if (widget.selectedAddon[addon] == true) {
