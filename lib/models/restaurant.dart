@@ -1,4 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/models/food.dart';
 
 //bdd ?
@@ -244,7 +246,39 @@ class Restaurant extends ChangeNotifier {
    * O P E R A T I O N S
    */
 
+  //user cart
+  final List<CartItem> _cart = [];
+
   // add to cart
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    //see if there is a cart item already with the same food and selected addons
+
+    //CartItem? :type CartItem, mais elle peut également être null (indiqué par le ?).
+    //firstWhereOrNull est une méthode qui cherche le premier élément de _cart
+    //qui satisfait une condition donnée.
+    //Si aucun élément ne satisfait la condition,
+    //elle retourne null au lieu de lancer une exception.
+
+    //Condition de recherche :
+    //bool isSameFood = item.food == food; //mm food
+    //bool isSameAddons =
+    //ListEquality().equals(item.selectedAddons, selectedAddons); //les 2 liste sont egales
+    // return isSameFood && isSameAddons : return true si les 2 conditions son vraies
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      //check if the food item are the same
+      bool isSameFood = item.food == food;
+      //check if the selected addons are the same
+      bool isSameAddons =
+          ListEquality().equals(item.selectedAddons, selectedAddons);
+
+      return isSameFood && isSameAddons;
+    });
+
+    //if already exist, increase its quantity
+    if (cartItem != null) {
+      cartItem.quantity++;
+    }
+  }
 
   //remove to cart
 
