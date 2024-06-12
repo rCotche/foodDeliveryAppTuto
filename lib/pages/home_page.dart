@@ -107,6 +107,10 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
               ],
+          //dans nos widgets enfants, nous pouvons accéder à notre liste
+          //en utilisant un autre widget fourni par Provider appelé "Consumer".
+          //Cela nous permet d'accéder aux données du fournisseur(Restaurant) et de les utiliser dans nos widgets.
+          //moi : context où on est dans le widget tree; restaurant instance du fournisseur Restaurant; child quel widget a accès
           body: Consumer<Restaurant>(
             builder: (context, restaurant, child) => TabBarView(
               controller: _tabController,

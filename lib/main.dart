@@ -5,6 +5,7 @@ import 'package:food_delivery/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  //Ce widget fournira nos classe à tous les widgets descendants qui en ont besoin.
   runApp(MultiProvider(
     providers: [
       //theme provider

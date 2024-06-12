@@ -278,15 +278,73 @@ class Restaurant extends ChangeNotifier {
     if (cartItem != null) {
       cartItem.quantity++;
     }
+    //otherwise, add a new cart item to the cart
+    else {
+      _cart.add(
+        CartItem(
+          food: food,
+          selectedAddons: selectedAddons,
+        ),
+      );
+    }
+    notifyListeners();
   }
 
   //remove to cart
+  void removeFromCart(CartItem cartItem) {
+    //The first index of [element] in this list.
+    //revoi l'index du premier element qui correspond
+    //regarde dans la liste _cart et cherche si dans la liste il y a cartItem
+    //Le premier elment qui correspond à cartItem dans la liste il renvoi l'index de l'element dans la liste
+    int cartIndex = _cart.indexOf(cartItem);
+
+    //si il a trouvé quelque chose, il renvoie l'index sinon il renvoi -1
+    if (cartIndex != -1) {
+      //si la quantité est strictement sup a 1
+      //juste on derease la quantité
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
+        //Removes the object at position [index] from this list.
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
 
   //get total price of the cart
+  double getTotalPrice() {
+    double total = 0.0;
+
+    //Pour chaque cartItem dans _cart
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
+
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+      total += itemTotal * cartItem.quantity;
+    }
+
+    return total;
+  }
 
   //get total numbers of item in the cart
+  int getTotalItemCount() {
+    int totalItemCount = 0;
+
+    for (CartItem cartItem in _cart) {
+      totalItemCount += cartItem.quantity;
+    }
+
+    return totalItemCount;
+  }
 
   //clear cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
   /**
    * H E L P E R S
