@@ -16,7 +16,7 @@ class MyCartTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
           horizontal: 25,
           vertical: 10,
         ),
@@ -36,7 +36,7 @@ class MyCartTile extends StatelessWidget {
                       width: 100,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   //name and price
@@ -49,7 +49,7 @@ class MyCartTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   //increment decrement quantity
                   MyQuantitySelector(
                     quantity: cartItem.quantity,
@@ -74,7 +74,13 @@ class MyCartTile extends StatelessWidget {
                     .map(
                       (addon) => FilterChip(
                         label: Row(
-                          children: [],
+                          children: [
+                            //addon name
+                            Text(addon.name),
+
+                            //addon price
+                            Text('\$${addon.price}'),
+                          ],
                         ),
                         onSelected: (value) {},
                       ),
