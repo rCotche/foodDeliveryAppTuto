@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/components/my_cart_tile.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:provider/provider.dart';
 
@@ -28,9 +29,7 @@ class CartPage extends StatelessWidget {
                     final unCartItem = userCart[index];
 
                     //ui
-                    return ListTile(
-                      title: Text(unCartItem.food.name),
-                    );
+                    return MyCartTile(cartItem: unCartItem);
                   }),
             ),
           ],
