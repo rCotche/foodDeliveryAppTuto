@@ -237,19 +237,24 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
   ];
+
+  //user cart
+  final List<CartItem> _cart = [];
+
+  //delivery adress (which user can change/update)
+  String _deliveryAdress = '6901 hollywood blv';
+
   /**
    * G E T T E R S
    */
 
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
+  String get deliveryAdress => _deliveryAdress;
 
   /**
    * O P E R A T I O N S
    */
-
-  //user cart
-  final List<CartItem> _cart = [];
 
   // add to cart
   void addToCart(Food food, List<Addon> selectedAddons) {
@@ -348,6 +353,11 @@ class Restaurant extends ChangeNotifier {
     notifyListeners();
   }
 
+  //update delivery adress
+  void updateDeliveryAdress(String adress) {
+    _deliveryAdress = adress;
+    notifyListeners();
+  }
   /**
    * H E L P E R S
    */
@@ -378,6 +388,8 @@ class Restaurant extends ChangeNotifier {
     receipt.writeln();
     receipt.writeln("Total items: ${getTotalItemCount()}");
     receipt.writeln("Total price: ${_formatPrice(getTotalPrice())}");
+    receipt.writeln();
+    receipt.writeln("Deliver to: $deliveryAdress");
     //
     return receipt.toString();
   }

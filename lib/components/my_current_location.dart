@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
 class MyCurrentLocation extends StatelessWidget {
   const MyCurrentLocation({super.key});
 
   void openLocationSearchBox(BuildContext context) {
+    TextEditingController textController = TextEditingController();
     //Displays a Material dialog above the current contents of the app
     //un modal
     showDialog(
@@ -11,8 +14,9 @@ class MyCurrentLocation extends StatelessWidget {
       //AlertDialog
       builder: (context) => AlertDialog(
         title: const Text("Your location"),
-        content: const TextField(
-          decoration: InputDecoration(hintText: "Search adresse..."),
+        content: TextField(
+          controller: textController,
+          decoration: const InputDecoration(hintText: "Enter adresse..."),
         ),
         actions: [
           //cancel
@@ -23,7 +27,15 @@ class MyCurrentLocation extends StatelessWidget {
 
           //save
           MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              //update delivery adress
+              debugPrint('avant');
+              String adress = textController.text;
+              debugPrint(adress);
+              context.read<Restaurant>().updateDeliveryAdress(adress);
+              Navigator.pop(context);
+              textController.clear();
+            },
             child: const Text("Save"),
           ),
         ],
@@ -49,11 +61,13 @@ class MyCurrentLocation extends StatelessWidget {
             child: Row(
               children: [
                 //address
-                Text(
-                  "6901 hollywood blv",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.bold,
+                Consumer<Restaurant>(
+                  builder: (context, restaurant, child) => Text(
+                    restaurant.deliveryAdress,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 //drop down menu
