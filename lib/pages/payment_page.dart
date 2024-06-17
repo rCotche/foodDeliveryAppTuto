@@ -82,49 +82,52 @@ class _PaymentPageState extends State<PaymentPage> {
         title: const Text("Checkout"),
         centerTitle: true,
       ),
-      //or add resizeToAvoidBottomInset: false, // solve the ui error when keyboard shows up
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            //Widget supplementaire
-            //credit card
-            CreditCardWidget(
-              cardNumber: cardNumber,
-              expiryDate: expiryDate,
-              cardHolderName: cardHolderName,
-              cvvCode: cvvCode,
-              showBackView: isCvvFocused,
-              onCreditCardWidgetChange: (p0) {},
-            ),
+      resizeToAvoidBottomInset: false,
+      //or wrap to SingleChildScrollView,
+      // but remove spacer because it tries to take as much space as possible.
+      //making your UI take an infinite amount of space because of that.
+      //That's the reason why you are seeing a white screen
+      // solve the ui error when keyboard shows up
+      body: Column(
+        children: [
+          //Widget supplementaire
+          //credit card
+          CreditCardWidget(
+            cardNumber: cardNumber,
+            expiryDate: expiryDate,
+            cardHolderName: cardHolderName,
+            cvvCode: cvvCode,
+            showBackView: isCvvFocused,
+            onCreditCardWidgetChange: (p0) {},
+          ),
 
-            //credit card form
-            CreditCardForm(
-              cardNumber: cardNumber,
-              expiryDate: expiryDate,
-              cardHolderName: cardHolderName,
-              cvvCode: cvvCode,
-              //when the credit card model change
-              //we update all the information
-              onCreditCardModelChange: (data) {
-                setState(() {
-                  cardNumber = data.cardNumber;
-                  expiryDate = data.expiryDate;
-                  cardHolderName = data.cardHolderName;
-                  cvvCode = data.cvvCode;
-                });
-              },
-              formKey: formKey,
-            ),
+          //credit card form
+          CreditCardForm(
+            cardNumber: cardNumber,
+            expiryDate: expiryDate,
+            cardHolderName: cardHolderName,
+            cvvCode: cvvCode,
+            //when the credit card model change
+            //we update all the information
+            onCreditCardModelChange: (data) {
+              setState(() {
+                cardNumber = data.cardNumber;
+                expiryDate = data.expiryDate;
+                cardHolderName = data.cardHolderName;
+                cvvCode = data.cvvCode;
+              });
+            },
+            formKey: formKey,
+          ),
 
-            const Spacer(),
-            //
-            MyButton(onTap: userTrappedPay, text: "Pay now"),
+          const Spacer(),
+          //
+          MyButton(onTap: userTrappedPay, text: "Pay now"),
 
-            const SizedBox(
-              height: 25,
-            )
-          ],
-        ),
+          const SizedBox(
+            height: 25,
+          )
+        ],
       ),
     );
   }

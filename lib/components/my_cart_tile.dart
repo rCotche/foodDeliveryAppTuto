@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_quantity_selector.dart';
 import 'package:food_delivery/models/cart_item.dart';
 import 'package:food_delivery/models/restaurant.dart';
