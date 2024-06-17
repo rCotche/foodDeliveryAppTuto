@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "542530713919",
+    "project_id": "fooddeliverytuto-c0337",
+    "storage_bucket": "fooddeliverytuto-c0337.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542530713919:android:bef70ef48ee79a2b95fb8a",
+        "android_client_info": {
+          "package_name": "com.roshancotchetuto.food_delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZONuveQdk6zehsXsM8Qfg4K367tK996M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
